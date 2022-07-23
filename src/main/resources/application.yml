@@ -1,0 +1,43 @@
+spring:
+  application:
+    name: userprofile
+
+  datasource:
+    driverClassName: org.postgresql.Driver
+    hikari:
+      connection-timeout: 10000
+      validation-timeout: 5000
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: userprofile
+    password: password
+  jpa:
+    show-sql: false
+    properties.hibernate.format_sql: false
+    hibernate.ddl-auto: validate
+    database-platform: org.hibernate.dialect.PostgreSQL9Dialect
+
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    database: 0
+    password: password
+  cache:
+    type: redis
+    redis:
+      cache-null-values: false
+      use-key-prefix: true
+      #time-to-live: 10000
+
+server:
+  port: 8082
+
+logging:
+  level:
+    org:
+      springframework:web: WARN
+      hibernate: ERROR
+    com:
+      root: warn
+      example.user: DEBUG
+
+spring.output.ansi.enabled: ALWAYS

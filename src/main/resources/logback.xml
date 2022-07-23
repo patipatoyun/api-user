@@ -1,0 +1,49 @@
+<configuration>
+    <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
+
+    <property name="CONSOLE_LOG_PATTERN"
+              value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%X{X-Device-ID:-},%X{X-Session-ID:-},%X{X-Customer-Key:-},%X{X-B3-TraceId:-},%X{X-B3-SpanId:-},%X{X-Span-Export:-},%X{X-Device-Name:-},%X{X-Version:-},%X{Uri:-}] %green(%5p) [%t] %cyan(%logger) : %m%n"/>
+
+    <property name="NO_COLOR_CONSOLE_LOG_PATTERN"
+              value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%X{X-Device-ID:-},%X{X-Session-ID:-},%X{X-Customer-Key:-},%X{X-B3-TraceId:-},%X{X-B3-SpanId:-},%X{X-Span-Export:-},%X{X-Device-Name:-},%X{X-Version:-},%X{Uri:-}] %p [%t] %logger : %m%replace(%xException){'\n',' '}%nopex%n"/>
+
+    <appender name="Console" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>${CONSOLE_LOG_PATTERN}</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="NoColorConsole" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>${NO_COLOR_CONSOLE_LOG_PATTERN}</pattern>
+        </encoder>[
+    </appender>
+
+    <appender name="Sentry" class="io.sentry.logback.SentryAppender">
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>ERROR</level>
+        </filter>
+    </appender>
+
+    <logger name="com.example.user" level="debug"/>
+    <logger name="org.springframework.web" additivity="false" level="info"/>
+    <logger name="org.springframework.ws" additivity="false" level="info"/>
+    <logger name="org.springframework.security" additivity="false" level="info"/>
+    <logger name="org.apache" additivity="false" level="info"/>
+    <logger name="org.apache.http" additivity="false" level="info"/>
+    <logger name="org.apache.tomcat" additivity="false" level="info"/>
+    <logger name="org.apache.cxf" additivity="false" level="info"/>
+
+    <springProfile name="default">
+        <root level="warn">
+            <appender-ref ref="Console"/>
+        </root>
+    </springProfile>
+
+    <springProfile name="!default">
+        <root level="info">
+            <appender-ref ref="Sentry"/>
+            <appender-ref ref="NoColorConsole"/>
+        </root>
+    </springProfile>
+</configuration>

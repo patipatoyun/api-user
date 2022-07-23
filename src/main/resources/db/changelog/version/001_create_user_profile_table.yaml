@@ -1,0 +1,55 @@
+databaseChangeLog:
+  - changeSet:
+      id: 99
+      author: uchoose
+      changes:
+        - createTable:
+            tableName: USER_PROFILE
+            columns:
+              - column:
+                  name: ID
+                  type: SERIAL
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: NAME
+                  type: VARCHAR2(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: SURNAME
+                  type: VARCHAR2(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: CID
+                  type: VARCHAR2(255)
+                  constraints:
+                    unique: true
+                    nullable: false
+              - column:
+                  name: ADDRESS
+                  type: VARCHAR2(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: GENDER
+                  type: VARCHAR2(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: PHONE_NUMBER
+                  type: VARCHAR2(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: EMAIL
+                  type: VARCHAR2(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: CREATED_TIMESTAMP
+                  type: TIMESTAMP
+                  constraints:
+                    nullable: false
