@@ -2,7 +2,7 @@
 
 ## General info
 
-RESTful Web service to manage user via API
+Web service to manage user via Rest API
 
 ## Technologies
 
