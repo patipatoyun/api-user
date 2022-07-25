@@ -1,6 +1,6 @@
-package com.example.user.model.response
+package com.example.user.model.profile.response
 
-import com.example.user.model.GENDER
+import com.example.user.model.profile.Gender
 import com.fasterxml.jackson.annotation.JsonInclude
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -10,7 +10,7 @@ class UserProfileDto(
     val surname: String,
     val cid: String? = null,
     val address: String? = null,
-    val gender: GENDER,
+    val gender: Gender,
     val phoneNumber: String? = null,
     val email: String? = null
 )

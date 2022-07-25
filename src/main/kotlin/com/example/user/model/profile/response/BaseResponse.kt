@@ -1,4 +1,4 @@
-package com.example.user.model.response
+package com.example.user.model.profile.response
 
 import com.fasterxml.jackson.annotation.JsonInclude
 

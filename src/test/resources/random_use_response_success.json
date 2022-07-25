@@ -1,0 +1,66 @@
+{
+  "results": [
+    {
+      "gender": "female",
+      "name": {
+        "title": "Mrs",
+        "first": "Alice",
+        "last": "Tucker"
+      },
+      "location": {
+        "street": {
+          "number": 3021,
+          "name": "Denny Street"
+        },
+        "city": "Limerick",
+        "state": "Carlow",
+        "country": "Ireland",
+        "postcode": 19160,
+        "coordinates": {
+          "latitude": "-1.4829",
+          "longitude": "143.8410"
+        },
+        "timezone": {
+          "offset": "-5:00",
+          "description": "Eastern Time (US & Canada), Bogota, Lima"
+        }
+      },
+      "email": "alice.tucker@example.com",
+      "login": {
+        "uuid": "0e844280-1bef-4756-a367-619fc5571093",
+        "username": "heavygorilla206",
+        "password": "game",
+        "salt": "Q47EvyAn",
+        "md5": "e9d63e28d8126d7fc93b83c365972ac9",
+        "sha1": "11b15bd8c86558999b33dda3947cd0b06380d67b",
+        "sha256": "59a88593aeadd836e677a35eaedee3b0960cfa450ab8c32e0d08a7c05a4a0b50"
+      },
+      "dob": {
+        "date": "1979-04-04T15:59:28.007Z",
+        "age": 43
+      },
+      "registered": {
+        "date": "2022-04-17T05:30:42.639Z",
+        "age": 0
+      },
+      "phone": "031-340-0525",
+      "cell": "081-740-2320",
+      "id": {
+        "name": "PPS",
+        "value": "7635307T"
+      },
+      "picture": {
+        "large": "https://randomuser.me/api/portraits/women/75.jpg",
+        "medium": "https://randomuser.me/api/portraits/med/women/75.jpg",
+        "thumbnail": "https://randomuser.me/api/portraits/thumb/women/75.jpg"
+      },
+      "nat": "IE"
+    }
+  ],
+  "info": {
+    "seed": "0ae2f8e02fc82836",
+    "results": 1,
+    "page": 1,
+    "version": "1.4"
+  }
+}

@@ -1,6 +1,6 @@
 package com.example.user.extension
 
-import com.example.user.model.GENDER
+import com.example.user.model.profile.Gender
 import com.example.user.model.entity.UserProfile
 import org.hamcrest.MatcherAssert.assertThat
 import org.hamcrest.Matchers.`is`
@@ -15,7 +15,7 @@ internal class UserProfileExtensionKtTest {
         surname = "surname-01",
         cid = "cid-01",
         address = "address",
-        gender = GENDER.MALE,
+        gender = Gender.MALE,
         phoneNumber = "phoneNumber",
         email = "email"
     )

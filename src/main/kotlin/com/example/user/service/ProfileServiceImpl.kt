@@ -3,11 +3,11 @@ package com.example.user.service
 import com.example.user.config.LoggerDelegate
 import com.example.user.extension.toUserProfileDto
 import com.example.user.model.entity.UserProfile
-import com.example.user.model.request.CreateProfileRequest
-import com.example.user.model.request.UpdateProfileRequest
-import com.example.user.model.response.CreateProfileResponse
-import com.example.user.model.response.InquiryProfileResponse
-import com.example.user.model.response.UpdateProfileResponse
+import com.example.user.model.profile.request.CreateProfileRequest
+import com.example.user.model.profile.request.UpdateProfileRequest
+import com.example.user.model.profile.response.CreateProfileResponse
+import com.example.user.model.profile.response.InquiryProfileResponse
+import com.example.user.model.profile.response.UpdateProfileResponse
 import com.example.user.repository.UserProfileRepository
 import com.example.user.exception.UserProfileNotFoundException
 import org.springframework.stereotype.Service

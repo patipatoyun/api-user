@@ -1,7 +1,7 @@
 package com.example.user.extension
 
 import com.example.user.model.entity.UserProfile
-import com.example.user.model.response.UserProfileDto
+import com.example.user.model.profile.response.UserProfileDto
 
 fun UserProfile.toUserProfileDto(): UserProfileDto {
     return UserProfileDto(

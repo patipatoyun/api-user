@@ -1,6 +1,6 @@
 package com.example.user.model.entity
 
-import com.example.user.model.GENDER
+import com.example.user.model.profile.Gender
 import org.springframework.data.annotation.CreatedDate
 import java.io.Serializable
 import java.util.Date
@@ -36,7 +36,7 @@ class UserProfile(
     var address: String? = null,
 
     @Enumerated(EnumType.STRING)
-    var gender: GENDER = GENDER.MALE,
+    var gender: Gender = Gender.MALE,
 
     @Column(nullable = true)
     var phoneNumber: String? = null,

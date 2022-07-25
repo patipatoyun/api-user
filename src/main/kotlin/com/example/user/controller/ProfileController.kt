@@ -1,11 +1,11 @@
 package com.example.user.controller
 
-import com.example.user.model.request.CreateProfileRequest
-import com.example.user.model.request.UpdateProfileRequest
-import com.example.user.model.response.BaseResponse
-import com.example.user.model.response.CreateProfileResponse
-import com.example.user.model.response.InquiryProfileResponse
-import com.example.user.model.response.UpdateProfileResponse
+import com.example.user.model.profile.request.CreateProfileRequest
+import com.example.user.model.profile.request.UpdateProfileRequest
+import com.example.user.model.profile.response.BaseResponse
+import com.example.user.model.profile.response.CreateProfileResponse
+import com.example.user.model.profile.response.InquiryProfileResponse
+import com.example.user.model.profile.response.UpdateProfileResponse
 import com.example.user.service.ProfileService
 import io.swagger.annotations.ApiOperation
 import io.swagger.annotations.ApiResponse
@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RestController
 import javax.validation.Valid
 
 @RestController
-@RequestMapping("/api/user/profile")
+@RequestMapping("/profile")
 class ProfileController(
     private val profileService: ProfileService
 ) {

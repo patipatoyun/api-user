@@ -1,12 +1,11 @@
 package com.example.user.service
 
-import com.example.user.model.GENDER
+import com.example.user.model.profile.Gender
 import com.example.user.model.entity.UserProfile
-import com.example.user.model.request.CreateProfileRequest
-import com.example.user.model.request.UpdateProfileRequest
+import com.example.user.model.profile.request.CreateProfileRequest
+import com.example.user.model.profile.request.UpdateProfileRequest
 import com.example.user.repository.UserProfileRepository
 import com.example.user.exception.UserProfileNotFoundException
-import org.hamcrest.CoreMatchers
 import org.hamcrest.MatcherAssert.assertThat
 import org.hamcrest.Matchers.`is`
 import org.junit.jupiter.api.Assertions
@@ -19,13 +18,11 @@ import org.mockito.Mock
 import org.mockito.junit.jupiter.MockitoExtension
 import org.mockito.kotlin.any
 import org.mockito.kotlin.argumentCaptor
-import org.mockito.kotlin.never
 import org.mockito.kotlin.times
 import org.mockito.kotlin.verify
 import org.mockito.kotlin.whenever
 import java.util.*
 import kotlin.test.assertNotNull
-import kotlin.test.assertTrue
 
 @Tag("fast")
 @ExtendWith(MockitoExtension::class)
@@ -46,7 +43,7 @@ internal class ProfileServiceImplTest {
         surname = "surname-01",
         cid = "cid-01",
         address = "address",
-        gender = GENDER.MALE,
+        gender = Gender.MALE,
         phoneNumber = "phoneNumber",
         email = "email"
     )
@@ -86,7 +83,7 @@ internal class ProfileServiceImplTest {
             surname = "surname-01",
             cid = "cid-01",
             address = "address",
-            gender = GENDER.MALE,
+            gender = Gender.MALE,
             phoneNumber = "phoneNumber",
             email = "email"
         )
@@ -114,7 +111,7 @@ internal class ProfileServiceImplTest {
             name = "name-99",
             surname = "surname-99",
             address = "address",
-            gender = GENDER.MALE,
+            gender = Gender.MALE,
             phoneNumber = "phoneNumber",
             email = "email"
         )

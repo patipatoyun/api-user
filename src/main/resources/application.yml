@@ -28,8 +28,20 @@ spring:
       use-key-prefix: true
       #time-to-live: 10000
 
+spring.output.ansi.enabled: ALWAYS
+
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 5000
+        readTimeout: 30000
+        loggerLevel: full
+
 server:
   port: 8082
+  servlet:
+    context-path: /api/user
 
 logging:
   level:
@@ -40,4 +52,5 @@ logging:
       root: warn
       example.user: DEBUG
 
-spring.output.ansi.enabled: ALWAYS
+random-user:
+  url: https://randomuser.me
