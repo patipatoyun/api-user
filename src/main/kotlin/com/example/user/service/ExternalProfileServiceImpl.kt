@@ -6,6 +6,7 @@ import com.example.user.config.RandomUserConfig
 import com.example.user.extension.toExtUserProfileDto
 import com.example.user.model.client.RandomUserResult
 import com.example.user.model.client.exception.RandomUserClientException
+import com.example.user.model.client.exception.RandomUserNotFoundException
 import com.example.user.model.external.ExtInquiryProfileResponse
 import com.example.user.model.external.entity.AddressInfo
 import com.example.user.model.external.entity.ExtUserProfileEntity
@@ -27,7 +28,7 @@ class ExternalProfileServiceImpl(
         if (entity != null) return ExtInquiryProfileResponse(userInfo = entity.toExtUserProfileDto())
 
         val randomUserResultList = callRandomUserClient(keyword)
-        if (randomUserResultList.isNullOrEmpty()) throw RandomUserClientException("RandomUser Not Found")
+        if (randomUserResultList.isNullOrEmpty()) throw RandomUserNotFoundException()
 
         return randomUserResultList.first().let {
             val entity = saveCache(keyword, it)
@@ -35,20 +36,20 @@ class ExternalProfileServiceImpl(
         }
     }
 
-    internal fun saveCache(keyword: String, it: RandomUserResult): ExtUserProfileEntity {
+    internal fun saveCache(keyword: String, result: RandomUserResult): ExtUserProfileEntity {
         return ExtUserProfileEntity(
             id = keyword,
-            title = it.randomUser.title,
-            name = it.randomUser.firstname,
-            lastName = it.randomUser.lastname,
-            gender = it.gender,
-            phoneNumber = it.phoneNumber,
-            email = it.email,
+            title = result.randomUser.title,
+            name = result.randomUser.firstname,
+            lastName = result.randomUser.lastname,
+            gender = result.gender,
+            phoneNumber = result.phoneNumber,
+            email = result.email,
             address = AddressInfo(
-                city = it.randomUserLocation.city,
-                state = it.randomUserLocation.state,
-                country = it.randomUserLocation.country,
-                postcode = it.randomUserLocation.postcode
+                city = result.randomUserLocation.city,
+                state = result.randomUserLocation.state,
+                country = result.randomUserLocation.country,
+                postcode = result.randomUserLocation.postcode
             ),
             expiryTime = randomUserConfig.expiredTime
         ).run {

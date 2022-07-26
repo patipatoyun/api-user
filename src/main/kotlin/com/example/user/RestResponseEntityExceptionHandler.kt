@@ -4,6 +4,7 @@ import com.example.user.config.LoggerDelegate
 import com.example.user.model.profile.response.BaseResponse
 import com.example.user.exception.UserProfileNotFoundException
 import com.example.user.model.client.exception.RandomUserClientException
+import com.example.user.model.client.exception.RandomUserNotFoundException
 import org.springframework.context.MessageSource
 import org.springframework.http.HttpHeaders
 import org.springframework.http.HttpStatus
@@ -21,6 +22,16 @@ class RestResponseEntityExceptionHandler(
 ) : ResponseEntityExceptionHandler() {
 
     val log by LoggerDelegate()
+
+    @ExceptionHandler(RandomUserNotFoundException::class)
+    fun randomUserNotFoundExceptionHandler(
+        ex: RandomUserNotFoundException,
+        locale: Locale
+    ): ResponseEntity<BaseResponse<String>> {
+        log.error("[RandomUserNotFoundException] message: {}", ex.message)
+        val response = BaseResponse.Builder<String>().error(ex.errorCode, messageSource.getMessage(ex, locale))
+        return ResponseEntity(response, ex.httpStatus)
+    }
 
     @ExceptionHandler(RandomUserClientException::class)
     fun randomUserClientExceptionHandler(

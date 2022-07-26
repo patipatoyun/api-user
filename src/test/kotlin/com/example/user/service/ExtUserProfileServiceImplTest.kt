@@ -4,6 +4,7 @@ import com.example.user.client.RandomUserClient
 import com.example.user.config.RandomUserConfig
 import com.example.user.model.client.RandomUserResponse
 import com.example.user.model.client.exception.RandomUserClientException
+import com.example.user.model.client.exception.RandomUserNotFoundException
 import com.example.user.model.external.entity.AddressInfo
 import com.example.user.model.external.entity.ExtUserProfileEntity
 import com.example.user.model.profile.Gender
@@ -152,17 +153,16 @@ internal class ExtUserProfileServiceImplTest {
         }
 
         @Test
-        fun shouldThrowRandomUserClientException_WhenRandomUserResultListIsEmpty() {
+        fun shouldThrowRandomUserNotFoundException_WhenRandomUserResultListIsEmpty() {
 
             whenever(extUserProfileRepository.findById(any())).thenReturn(Optional.empty())
             whenever(randomUserClient.inquiry(any())).thenReturn(RandomUserResponse(emptyList()))
 
-            val actual = assertThrows(RandomUserClientException::class.java) {
+            val actual = assertThrows(RandomUserNotFoundException::class.java) {
                 subject.inquiry(keyword)
             }
 
-            assertThat(actual.message, `is`("RandomUser Not Found"))
-            assertThat(actual.httpStatus, `is`(HttpStatus.PRECONDITION_FAILED))
+            assertThat(actual.httpStatus, `is`(HttpStatus.NO_CONTENT))
         }
     }
 }
